@@ -49,7 +49,9 @@ const remove = async (req, res) => {
     if (req.userId.toString() !== post.userId.toString()) {
       res.status(401).json("You are not authorized to make this action");
     }
-    fs.unlinkSync(path.join(path.resolve("./"), post.thumbnail));
+    if (post.thumbnail) {
+      fs.unlinkSync(path.join(path.resolve("./"), post.thumbnail));
+    }
     await post.destroy();
     res.status(200).json("Post is deleted");
   } catch (error) {
@@ -66,9 +68,12 @@ const update = async (req, res) => {
       res.status(401).json("You are not authorized to make this action");
     }
     if (req.body.filename) {
-      fs.unlinkSync(path.join(__dirname, category.thumbnail));
+      const picturePath = path.join(path.resolve("./"), post.thumbnail);
+      if (!picturePath.includes("/uploads/static/")) {
+        fs.unlinkSync(picturePath);
+      }
     }
-    await Post.update(req.body, { where: { id: id } });
+    await Post.update({ ...req.body, thumbnail: req.body.filename }, { where: { id: id } });
     post = await Post.findByPk(id);
     res.status(200).json(post);
   } catch (error) {
