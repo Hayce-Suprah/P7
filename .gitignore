@@ -1,0 +1,26 @@
+# API
+/API/node_modules
+/API/.env
+/API/uploads/*.png
+/API/uploads/*.jpg
+/API/uploads/*.jpeg
+/API/uploads/*.gif
+
+# FRONT
+/front/node_modules
+/front/.pnp
+/front/.pnp.js
+
+/front/coverage
+
+/front/build
+
+/front/.DS_Store
+/front/.env.local
+/front/.env.development.local
+/front/.env.test.local
+/front/.env.production.local
+
+/front/npm-debug.log*
+/front/yarn-debug.log*
+/front/yarn-error.log*
