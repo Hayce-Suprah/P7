@@ -64,11 +64,12 @@ const update = async (req, res) => {
     let category = await Category.findByPk(id);
     if (req.body.filename) {
       const picturePath = path.join(path.resolve("./"), category.thumbnail);
-      if (!picturePath.includes("/uploads/static/")) {
+      if (!picturePath.includes("static")) {
         fs.unlinkSync(picturePath);
       }
+      req.body.thumbnail = req.body.filename;
     }
-    await category.update({ ...req.body, thumbnail: req.body.filename });
+    await category.update(req.body);
     category = await Category.findByPk(id);
     res.status(200).json(category);
   } catch (error) {

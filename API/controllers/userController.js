@@ -87,11 +87,13 @@ const update = async (req, res) => {
     if (req.userId.toString() !== user.id.toString()) {
       res.status(401).json("You are not authorized to make this action");
     }
+
     if (req.body.filename) {
       const picturePath = path.join(path.resolve("./"), user.picture);
-      if (!picturePath.includes("/uploads/static/")) {
+      if (!picturePath.includes("static")) {
         fs.unlinkSync(picturePath);
       }
+      req.body.picture = req.body.filename;
     }
 
     await User.update(req.body, { where: { id: id } });
@@ -111,7 +113,7 @@ const remove = async (req, res) => {
       res.status(401).json("You are not authorized to make this action");
     }
     if (user.picture !== "/uploads/static/user.svg") {
-      fs.unlinkSync(path.join(__dirname, user.picture));
+      fs.unlinkSync(path.join(path.resolve("./"), user.picture));
     }
     await user.destroy();
     res.status(200).json("User is deleted");

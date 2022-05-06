@@ -29,6 +29,7 @@ export const Home = () => {
               content={post.content}
               thumbnail={post.thumbnail}
               author={post.user}
+              createdAt={post.createdAt}
               comments={post.comments}
               category={post.category}
               onPostDeleted={getPosts}

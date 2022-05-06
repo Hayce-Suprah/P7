@@ -141,6 +141,7 @@ export const UserDetails = () => {
                 content={post.content}
                 category={post.category}
                 thumbnail={post.thumbnail}
+                createdAt={post.createdAt}
                 author={user}
                 withComment={false}
                 withCategory={false}

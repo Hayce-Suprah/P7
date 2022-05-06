@@ -4,6 +4,7 @@ import styles from "./Post.module.css";
 import { Link } from "react-router-dom";
 import { Comment } from "../Comment/Comment";
 import axios from "axios";
+import moment from "moment";
 
 export const Post = ({
   id,
@@ -13,6 +14,7 @@ export const Post = ({
   comments,
   author,
   category,
+  createdAt,
   withComment = true,
   withCategory = true,
   onPostDeleted,
@@ -184,7 +186,7 @@ export const Post = ({
             </button>
           )}
       </div>
-      <div className="card-footer text-muted">Créer par {author.username}</div>
+      <div className="card-footer text-muted">Créer par {author.username} - {createdAt && moment(createdAt).startOf(createdAt).fromNow()}</div>
 
       {/* Modal de modification d'un article */}
       <div
