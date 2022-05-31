@@ -65,7 +65,7 @@ export const UserList = () => {
                 <img
                   height={40}
                   src={`${process.env.REACT_APP_API_URL}${user.picture}`}
-                  alt=""
+                  alt="image utilisateur"
                 />
               </td>
               <td>

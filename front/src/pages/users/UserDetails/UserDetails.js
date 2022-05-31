@@ -58,8 +58,9 @@ export const UserDetails = () => {
                   <>
                     <form onSubmit={handleSubmit}>
                       <div className="form-group">
-                        <label>Email</label>
+                        <label htmlFor="email">Email</label>
                         <input
+                        id="email"
                           type="email"
                           disabled
                           className="form-control"
@@ -67,8 +68,9 @@ export const UserDetails = () => {
                         />
                       </div>
                       <div className="form-group mt-2">
-                        <label>Pseudo</label>
+                        <label htmlFor="pseudo">Pseudo</label>
                         <input
+                        id="pseudo"
                           type="text"
                           className="form-control"
                           value={username}
@@ -77,10 +79,11 @@ export const UserDetails = () => {
                         />
                       </div>
                       <div className="form-group mt-2">
-                        <label>
+                        <label htmlFor="image">
                           Image (laisser vide si vous voulez garder l'original)
                         </label>
                         <input
+                        id="image"
                           ref={pictureRef}
                           type="file"
                           className="form-control"
@@ -105,7 +108,7 @@ export const UserDetails = () => {
                       <img
                         src={`${process.env.REACT_APP_API_URL}${user.picture}`}
                         className={styles.picture}
-                        alt=""
+                        alt="image utilisateur"
                       />
                       <h3 className="mt-2">{user.username}</h3>
                       <div>

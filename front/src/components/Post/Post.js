@@ -97,7 +97,7 @@ export const Post = ({
       <img
         src={`${process.env.REACT_APP_API_URL}${thumbnail}`}
         className={styles.picture}
-        alt=""
+        alt="image article"
       />
       <div className="card-body">
         <div className="d-flex align-items-center">
@@ -106,7 +106,7 @@ export const Post = ({
               <img
                 src={`${process.env.REACT_APP_API_URL}${author.picture}`}
                 className={styles.picture}
-                alt=""
+                alt="image utilisateur"
               />
             </Link>
           </div>
@@ -148,7 +148,9 @@ export const Post = ({
             <>
               <form onSubmit={handleCommentSubmit}>
                 <div className="form-group mb-2">
+                  <label htmlFor={`comment-${id}`} >Ajouter un commentaire</label>
                   <input
+                    id={`comment-${id}`}
                     placeholder="Laisser votre commentaire içi..."
                     className="form-control"
                     value={comment}
@@ -166,7 +168,7 @@ export const Post = ({
         {(author.id.toString() === localStorage.getItem("userIdP7")) && (
           <button
             type="button"
-            className="btn btn-outline-warning btn-sm mt-2 me-2"
+            className="btn btn-outline-primary btn-sm mt-2 me-2"
             data-bs-toggle="modal"
             data-bs-target={`#modal-post-${id}`}
           >
@@ -211,8 +213,9 @@ export const Post = ({
               </div>
               <div className="modal-body">
                 <div className="form-group mb-2">
-                  <label>Titre</label>
+                  <label htmlFor={`add-title-${id}`}>Titre</label>
                   <input
+                    id={`add-title-${id}`}
                     className="form-control"
                     required
                     value={_title}
@@ -220,8 +223,9 @@ export const Post = ({
                   />
                 </div>
                 <div className="form-group mb-2">
-                  <label>Description</label>
+                  <label htmlFor={`add-description-${id}`}>Description</label>
                   <textarea
+                    id={`add-description-${id}`}
                     className="form-control"
                     required
                     value={description}
@@ -229,8 +233,9 @@ export const Post = ({
                   />
                 </div>
                 <div className="form-group mb-2">
-                  <label>Catégorie</label>
+                  <label htmlFor={`add-category-${id}`}>Catégorie</label>
                   <select
+                    id={`add-category-${id}`}
                     className="form-control"
                     defaultValue={categoryId}
                     onChange={(e) => setCategoryId(e.target.value)}
@@ -244,8 +249,8 @@ export const Post = ({
                   </select>
                 </div>
                 <div className="form-group mb-2">
-                  <label>Image (ne rien mettre pour garder l'original)</label>
-                  <input ref={inputFile} className="form-control" type="file" />
+                  <label htmlFor={`add-image-${id}`}>Image (ne rien mettre pour garder l'original)</label>
+                  <input id={`add-image-${id}`} ref={inputFile} className="form-control" type="file" />
                 </div>
               </div>
               <div className="modal-footer">

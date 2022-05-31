@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from "../assets/icon.svg";
 
 export const Header = () => {
   const handleLogout = () => {
@@ -14,7 +15,7 @@ export const Header = () => {
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
         <Link className="navbar-brand" to={"/"}>
-          Groupomania
+          <img src={logo} alt="logo" width="80" height="80" />
         </Link>
         <button
           className="navbar-toggler"
@@ -66,19 +67,19 @@ export const Header = () => {
                 </li>
               </ul>
             ) : (
-              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                <li className="nav-item">
-                  <Link className="nav-link" to={"/login"}>
-                    Connexion
+                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li className="nav-item">
+                    <Link className="nav-link" to={"/login"}>
+                      Connexion
                   </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to={"/register"}>
-                    Inscription
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link" to={"/register"}>
+                      Inscription
                   </Link>
-                </li>
-              </ul>
-            )}
+                  </li>
+                </ul>
+              )}
           </div>
         </div>
       </div>

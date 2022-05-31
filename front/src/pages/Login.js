@@ -39,8 +39,9 @@ export const Login = () => {
             <div className="card-body">
               <form onSubmit={handleSubmit}>
                 <div className="mb-3">
-                  <label className="form-label">Email</label>
+                  <label htmlFor="email" className="form-label">Email</label>
                   <input
+                    id="email"
                     type="email"
                     className="form-control"
                     placeholder="email@email.com"
@@ -49,8 +50,9 @@ export const Login = () => {
                   />
                 </div>
                 <div className="mb-3">
-                  <label className="form-label">Mot de passe</label>
+                  <label htmlFor="password" className="form-label">Mot de passe</label>
                   <input
+                    id="password"
                     type="password"
                     className="form-control"
                     required

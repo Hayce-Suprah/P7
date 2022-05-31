@@ -45,8 +45,9 @@ export const Register = () => {
               </p>
               <form onSubmit={handleSubmit}>
                 <div className="mb-3">
-                  <label className="form-label">Email</label>
+                  <label htmlFor="email" className="form-label">Email</label>
                   <input
+                    id="email"
                     type="email"
                     className="form-control"
                     placeholder="email@email.com"
@@ -55,8 +56,9 @@ export const Register = () => {
                   />
                 </div>
                 <div className="mb-3">
-                  <label className="form-label">Pseudo</label>
+                  <label htmlFor="pseudo" className="form-label">Pseudo</label>
                   <input
+                    id="pseudo"
                     className="form-control"
                     placeholder="Thor"
                     required
@@ -64,8 +66,9 @@ export const Register = () => {
                   />
                 </div>
                 <div className="mb-3">
-                  <label className="form-label">Mot de passe</label>
+                  <label htmlFor="password" className="form-label">Mot de passe</label>
                   <input
+                    id="password"
                     type="password"
                     className="form-control"
                     required
@@ -73,8 +76,9 @@ export const Register = () => {
                   />
                 </div>
                 <div className="mb-3">
-                  <label className="form-label">Répéter le mot de passe</label>
+                  <label htmlFor="confirm password" className="form-label">Répéter le mot de passe</label>
                   <input
+                    id="confirm password"
                     type="password"
                     className="form-control"
                     required

@@ -51,8 +51,9 @@ export const AddPost = () => {
             <div className="card-body">
               <form onSubmit={(e) => handleSubmit(e)}>
                 <div className="form-group mb-3">
-                  <label>Titre</label>
+                  <label htmlFor="title">Titre</label>
                   <input
+                    id="title"
                     type="text"
                     className="form-control"
                     onChange={(e) => setTitle(e.target.value)}
@@ -60,8 +61,9 @@ export const AddPost = () => {
                   />
                 </div>
                 <div className="form-group mb-3">
-                  <label>Image</label>
+                  <label htmlFor="image">Image</label>
                   <input
+                    id="image"
                     type="file"
                     ref={pictureRef}
                     className="form-control"
@@ -69,8 +71,9 @@ export const AddPost = () => {
                   />
                 </div>
                 <div className="form-group mb-3">
-                  <label>Contenue</label>
+                  <label htmlFor="content">Contenue</label>
                   <textarea
+                    id="content"
                     className="form-control"
                     required
                     onChange={(e) => setContent(e.target.value)}

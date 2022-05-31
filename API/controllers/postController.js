@@ -69,11 +69,12 @@ const update = async (req, res) => {
     }
     if (req.body.filename) {
       const picturePath = path.join(path.resolve("./"), post.thumbnail);
-      if (!picturePath.includes("/uploads/static/")) {
+      if (!picturePath.includes("static")) {
         fs.unlinkSync(picturePath);
       }
+      req.body.thumbnail = req.body.filename;
     }
-    await Post.update({ ...req.body, thumbnail: req.body.filename }, { where: { id: id } });
+    await Post.update(req.body, { where: { id: id } });
     post = await Post.findByPk(id);
     res.status(200).json(post);
   } catch (error) {

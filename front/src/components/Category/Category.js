@@ -63,7 +63,7 @@ export const Category = ({
         <img
           src={`${process.env.REACT_APP_API_URL}${thumbnail}`}
           className={styles.picture}
-          alt=""
+          alt="categorie image"
         />
         <div className="card-body">
           <h5 clclassNameass="card-title">
@@ -74,7 +74,7 @@ export const Category = ({
             <>
               <button
                 type="button"
-                className="btn btn-outline-warning btn-sm mt-2"
+                className="btn btn-outline-primary btn-sm mt-2"
                 data-bs-toggle="modal"
                 data-bs-target={`#modal-category-${id}`}
               >
@@ -114,8 +114,9 @@ export const Category = ({
               </div>
               <div className="modal-body">
                 <div className="form-group mb-2">
-                  <label>Nom</label>
+                  <label htmlFor={`name-${id}`}>Nom</label>
                   <input
+                    id={`name-${id}`}
                     className="form-control"
                     required
                     value={name}
@@ -123,8 +124,8 @@ export const Category = ({
                   />
                 </div>
                 <div className="form-group mb-2">
-                  <label>Image (ne rien mettre pour garder l'original)</label>
-                  <input ref={inputFile} className="form-control" type="file" />
+                  <label htmlFor={`image-${id}`}>Image (ne rien mettre pour garder l'original)</label>
+                  <input id={`name-${id}`} ref={inputFile} className="form-control" type="file" />
                 </div>
               </div>
               <div className="modal-footer">

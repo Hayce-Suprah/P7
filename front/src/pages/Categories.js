@@ -97,8 +97,9 @@ export const Categories = () => {
               </div>
               <div className="modal-body">
                 <div className="form-group mb-2">
-                  <label>Nom</label>
+                  <label htmlFor="name">Nom</label>
                   <input
+                    id="name"
                     className="form-control"
                     required
                     value={name}
@@ -106,8 +107,9 @@ export const Categories = () => {
                   />
                 </div>
                 <div className="form-group mb-2">
-                  <label>Image</label>
+                  <label htmlFor="image">Image</label>
                   <input
+                    id="image"
                     ref={inputFile}
                     required
                     className="form-control"

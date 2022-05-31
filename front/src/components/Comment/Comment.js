@@ -32,7 +32,7 @@ export const Comment = ({
           <Link to={`/users/${author.id}`}>
             <img
               src={`${process.env.REACT_APP_API_URL}${author.picture}`}
-              alt=""
+              alt="commentaire image"
             />
           </Link>
         </div>
@@ -40,16 +40,16 @@ export const Comment = ({
           <p>{content}</p>
           {(localStorage.getItem("userIdP7") === author.id.toString() ||
             localStorage.getItem("roleP7") === "1") && (
-            <button
-              onClick={handleDeleteComment}
-              className={classnames(
-                "btn btn-outline-danger btn-sm",
-                styles.button
-              )}
-            >
-              <i className="bi bi-trash"></i>
-            </button>
-          )}
+              <button
+                onClick={handleDeleteComment}
+                className={classnames(
+                  "btn btn-outline-danger btn-sm",
+                  styles.button
+                )}
+              >
+                <i className="bi bi-trash"></i> Supprimer
+              </button>
+            )}
         </div>
       </div>
       <figcaption className="blockquote-footer mt-1">
